@@ -1,0 +1,42 @@
+<br>
+<section>
+  <h2 class="title is-4 has-text-weight-medium has-text-black is-italic">Complete the form below to create a new post!</h2>
+<br>
+  <form class="new-post-form">
+    <div>
+      <label for="post-title" class="subtitle is-5 has-text-weight-medium has-text-grey-dark">Title</label>
+      <input type="text" id="post-title" name="post-title" class="input is-dark is-focused has-text-grey" placeholder="Add Recipe Name Here..." />
+    </div>
+    <br>
+    <div>
+      <label for="post-url" class="subtitle is-5 has-text-weight-medium has-text-grey-dark">Link</label>
+         <input id="post-url" name="comment-body" class="input is-dark is-focused has-text-grey" placeholder="Add Recipe Link Here.." name="post-url"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn button has-background-primary has-text-white">Share</button>
+  </form>
+</section>
+<br>
+<br>
+{{#if posts.length}}
+<section>
+  <p class="title is-4 has-text-dark has-text-weight-medium has-text-centered-fullhd is-italic is-family-primary">View your Posts Below:</p>
+  <div class="has-text-grey-dark is-italic is-size-6-fullhd">
+  <ol>
+    {{#each posts as |post|}}
+    <div id="recipe-box" class="box has-background-primary-light">
+    <ul class="is-size-6">
+      {{> post-info post}}
+      <br>
+      <a href="/dashboard/edit/" class="button is-small edit-link has-background-primary has-text-grey-dark is-size-7-fullhd">Edit Post</a>
+    </ul>
+    </div>
+    <br>
+    {{/each}}
+  </ol>
+  </div>
+</section>
+{{/if}}
+
+
+<script src="/public/js/add-post.js"></script>
