@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     });
 });
 
-//get api/users/id
+//get api users
 router.get("/:id", (req, res) => {
   User.findOne({
     attributes: { exclude: ["password"] },
@@ -70,7 +70,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//post api/users
+//post user
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
@@ -110,7 +110,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-//put api users
+//put update
 router.put("/:id", (req, res) => {
   User.update(req.body, {
     individualHooks: true,
